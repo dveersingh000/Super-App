@@ -1,11 +1,17 @@
-
+import React from 'react';
+import { BrowserRouter , Routes, Route } from 'react-router-dom';
+import { RegisterPage } from './pages/RegisterPage.jsx';
 
 function App() {
   
 
   return (
     <>
-      <h1>Welocme</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<RegisterPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
