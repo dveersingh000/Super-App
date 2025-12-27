@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter , Routes, Route } from 'react-router-dom';
-import { RegisterPage } from './pages/RegisterPage.jsx';
+import  RegisterPage  from './pages/RegisterPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 
 function App() {
