@@ -12,6 +12,22 @@
     background: url('../assets/bg.png');
 }
 
+.label {
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 600px;
+    margin-left: 20px;
+}
+
+.heading {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-left: 20px;
+    color: #72DB73;
+}
+
 .right {
     width: 50%;
     height: 100%;

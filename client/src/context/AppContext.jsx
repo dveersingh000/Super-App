@@ -9,6 +9,14 @@ export const AppProvider = ({children}) => {
         JSON.parse(localStorage.getItem("selectedGenres")) || []
     );
 
+    useEffect(() => {
+        localStorage.setItem("user", JSON.stringify(user));
+    }, [user]);
+
+    useEffect(() => {
+        localStorage.setItem("selectedGenres", JSON.stringify(selectedGenres));
+    }, [selectedGenres]);
+
     return (
         <AppContext.Provider value={{user, setUser, selectedGenres, setSelectedGenres}}>
             {children}

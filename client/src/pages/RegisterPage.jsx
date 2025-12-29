@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './RegisterPage.module.css';
 import { AppContext } from '../context/AppContext.jsx';
 import { useContext } from 'react';
 import Form from '../components/Form.jsx';
 import validateForm from '../utlis/validateForm';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {
     const {user, setUser} = useContext(AppContext);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
+    const [phone, setPhone] = useState('');
+    const [error, setError] = useState({});
+    const navigate = useNavigate();
+
+    const submitHandler = () => {
+        const { valid, inValid } = validateForm(name, email, username, phone);
+        if (!valid) {
+            setError({...inValid});
+            // console.log("Form is invalid:", inValid);
+            return;
+        } 
+        setError({});
+        setUser({name, email, username, phone});
+        navigate("/genres")
+    }
+
 
   return (
     <div className={styles.container}>
@@ -19,7 +39,19 @@ const RegisterPage = () => {
             <h2 className={styles.heading}>Super app</h2>
             <h3 className={styles.subHeading}>Create your new account</h3>
         </div>
-        <Form user={user} setUser={setUser} />
+        <Form 
+            name={name}
+            setName={setName}
+            email={email}
+            setEmail={setEmail}
+            username={username}
+            setUsername={setUsername}
+            phone={phone}
+            setPhone={setPhone}
+            error={error}
+            setError={setError}
+            submitHandler={submitHandler}
+        />
         <div className={styles.footer}>
             
             <p>By clicking on Sign up. you agree to Superapp 
