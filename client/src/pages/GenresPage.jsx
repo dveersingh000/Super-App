@@ -14,7 +14,7 @@ const GenresPage = () => {
             setError(false);
         }
     },[selectedGenres])
-    
+
     const handleSelectedGenre = (genre) => {
         if(selectedGenres.includes(genre)){
             setSelectedGenres(
@@ -30,7 +30,7 @@ const GenresPage = () => {
         if(selectedGenres.length < 3){
             setError(true);
         }else{
-            // navigate('/carousel')
+            navigate('/carousel')
         }
     }
 

@@ -8,11 +8,11 @@ import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {
     const {user, setUser} = useContext(AppContext);
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [username, setUsername] = useState('');
-    const [phone, setPhone] = useState('');
-    const [error, setError] = useState({});
+    const [name, setName] = useState(user?.name || '');
+    const [email, setEmail] = useState(user?.email || '');
+    const [username, setUsername] = useState(user?.username || '');
+    const [phone, setPhone] = useState(user?.phone || '');
+    const [error, setError] = useState();
     const navigate = useNavigate();
 
     const submitHandler = () => {
@@ -22,7 +22,7 @@ const RegisterPage = () => {
             // console.log("Form is invalid:", inValid);
             return;
         } 
-        setError({});
+        setError(null);
         setUser({name, email, username, phone});
         navigate("/genres")
     }
